@@ -36,6 +36,7 @@ jobs:
           - T16
           - TX16S
           - X12S
+          - YAML
     container:
       image: ghcr.io/edgetx/edgetx-commit-tests
       volumes:
