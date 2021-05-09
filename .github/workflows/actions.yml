@@ -36,7 +36,6 @@ jobs:
           - T16
           - TX16S
           - X12S
-          - YAML
     container:
       image: ghcr.io/edgetx/edgetx-commit-tests
       volumes:
@@ -54,6 +53,7 @@ jobs:
         name: Test ${{ matrix.target }}
         env:
           FLAVOR: ${{ matrix.target }}
+          EXTRA_OPTIONS: ' -DYAML_STORAGE=ON'
         run: |
           echo "Running commit tests"
           ./tools/commit-tests.sh
@@ -61,6 +61,7 @@ jobs:
         name: Build ${{ matrix.target }}
         env:
           FLAVOR: ${{ matrix.target }}
+          EXTRA_OPTIONS: ' -DYAML_STORAGE=ON'
         run: |
           echo "Running firmware build"
           ./tools/build-gh.sh
